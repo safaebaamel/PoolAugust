@@ -1,9 +1,12 @@
-#include<unistd.h>
+#include <unistd.h>
+
 int		largeur_etage(int i)
 {
+	/* la largeur de l'étage 1 */
 	if (i == 0)
 	return(7);
-	
+	/* (indice) + 2 * C
+	C = "zone verte" + "hauteur ou zone jaune" + "zone rose" */
 	return(largeur_etage(i - 1) + 2 * (1 + (3 + i) + ((i % 2) + (i / 2))));
 }
 
@@ -21,7 +24,7 @@ void	etage(int hauteur, int largeur, int decallage)
 			write(1," ",1);
 			j++;
 		}
-		j += hauteur + 1 - i;
+		j += hauteur + 1 - i; // add 2
 		write(1,"/",1);
 		while (j < largeur)
 		{
@@ -40,6 +43,8 @@ void	fill_door(int s, int i, int hauteur, int largeur, int decallage, int door_s
 
 	j = s;
 	write(1,"/",1);
+	/* that one finds the center l - (l - s) / 2, draws * up until the center, then draws the door, then finishes the line with "*" 
+	 * it works because door_size is always odd/not divisible by 2 */
 	while (j < largeur - (largeur - s) / 2 - door_size / 2 - 1)
 	{
 		write(1,"*",1);
@@ -47,6 +52,8 @@ void	fill_door(int s, int i, int hauteur, int largeur, int decallage, int door_s
 	}
 	while (j < largeur - (largeur - s) / 2 + door_size / 2)
 	{
+		/* This one looks if door size is 3 or bigger, and if it's the middle line of the door (vertically), and if it's the second to last column
+then it draws the $ instead. */
 		if (door_size > 3 && hauteur - i - 1 == door_size / 2 && j == largeur - (largeur - s) / 2 + door_size / 2 - 2) 
 			write(1,"$",1);
 		else
@@ -119,7 +126,7 @@ void	sastantua(int size)
 
 	i = 0;
 	door_size = size;
-	if(door_size % 2 == 0)
+	if (door_size % 2 == 0)
 	{
 		door_size--;
 	}
