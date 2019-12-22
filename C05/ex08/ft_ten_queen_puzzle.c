@@ -1,23 +1,18 @@
-
 #include <unistd.h>
 #include <stdio.h>
 
 void	ft_putchar(char c)
 {
-	write(1,&c,1);
+	write(1,&c,sizeof(c));
 }
 
-int	check(int *tab, int position, int i)
+int	backtrack_check(int *tab, int position, int i)
 {
-	//two queens are on the same diagonal only if (i - j) = |k - l|
-	//with (i,j) and (k,l) are positions
 	int j;
 
-	//position == T[i]
 	j = 0;
-	while (j < i)
+	while (i > j)
 	{
-		//each queen must be on a different row
 		if (tab[j] == position)
 			return 0;
 		if (position - tab[j] == i - j)
@@ -42,7 +37,7 @@ void	print(int *tab)
 	ft_putchar('\n');
 }
 
-void	recursive(int *tab, int *nb_sol, int i)
+void	recursive(int *tab,int *nb_sol, int i)
 {
 	int position;
 
@@ -54,10 +49,10 @@ void	recursive(int *tab, int *nb_sol, int i)
 	position = 0;
 	while (position < 10)
 	{
-		if (check(tab,position,i) == 1)
+		if (backtrack_check(tab,position,i) == 1)
 		{
 			tab[i] = position;
-			recursive(tab,nb_sol,i + 1);
+			recursive(tab,nb_sol,i+1);
 		}
 		position++;
 	}
@@ -65,23 +60,16 @@ void	recursive(int *tab, int *nb_sol, int i)
 
 int	ft_ten_queens_puzzle(void)
 {
-	int i;
 	int tab[10];
 	int nb_sol;
 
 	nb_sol = 0;
-	i = 0;
-	while (i < 10)
-	{
-		tab[i] = 0;
-		i++;
-	}
-	recursive(tab,&nb_sol, 0);
+	recursive(tab,&nb_sol,0);
 	return (nb_sol);
 }
 
 int	main(void)
 {
 	printf("%d",ft_ten_queens_puzzle());
-	return 0;
 }
+
