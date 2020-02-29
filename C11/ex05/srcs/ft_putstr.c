@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "do-op.h"
 
 void	ft_putstr(char *str)
 {
@@ -7,7 +7,7 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		ft_putchar(str[i];
+		ft_putchar(str[i]);
 		i++;
 	}
 }

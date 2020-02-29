@@ -4,14 +4,18 @@
 
 #include <unistd.h>
 
+void	do_op(int a, int b, int i);
 int	ft_atoi(char *str);
 void	ft_putchar(char c);
-int	ft_putnbr(int n);
+void	ft_putnbr(int n);
 void 	ft_putstr(char *str);
-int	ft_add(int a, int b);
-int	ft_min(int a, int b);
-int	ft_mod(int a, int b);
-int	ft_div(int a, int b);
-int	ft_mul(int a, int b);
+
+int	add(int a, int b);
+int	sub(int a, int b);
+int	mod(int a, int b);
+int	div(int a, int b);
+int	mul(int a, int b);
+
+int	ft_strcmp(char *s1, char *s2);
 
 #endif

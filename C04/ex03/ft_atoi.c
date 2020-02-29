@@ -9,6 +9,7 @@ int	atoi(char *str)
 
 	negative = 1;
 	i = 0;
+	r = 0;
 	while (str[i] < 33)
 	{
 		i++;
