@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+*ccchar	*ft_strcpy(char *dest, char *src)
 {
 	int i;
 

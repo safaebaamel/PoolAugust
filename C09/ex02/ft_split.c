@@ -91,6 +91,6 @@ int		main()
 
 	int i = 0;
 	while(dest[i])
-		printf("%s\n",dest[i++]);
+		printf("%s\t",dest[i++]);
 
 }
