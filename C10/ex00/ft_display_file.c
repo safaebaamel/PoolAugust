@@ -5,8 +5,7 @@
 int	main(int ac, char **av)
 {
 	int fd;
-	char buff;
-	int i;
+	char buff[1];
 
 	if (ac < 2)
 		write(2,"File name missing.\n",19);
@@ -16,8 +15,8 @@ int	main(int ac, char **av)
 		return 0;
 	if ((fd = open(av[1], O_RDONLY)) > 0)
 	{
-		while ((i = read(fd, &buff, 1)) != 0)
-			write(1, &buff, 1);
+		while (read(fd, buff, 1) > 0)
+			write(1, buff, 1);
 	}
 	else 
 		write(2,"Cannot read file.\n",18);

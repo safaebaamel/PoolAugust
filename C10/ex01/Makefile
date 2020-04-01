@@ -1,7 +1,9 @@
- 
-NAME=ft_display_file
 
-SRCS =	ft_display_file.c
+NAME=ft_cat
+
+SRCS =  ft_cat.c\
+	ft_strlen.c\
+	ft_print_error.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -18,10 +20,10 @@ $(NAME): $(OBJS)
 	gcc $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
-re: fclean all
+re : fclean all
 
