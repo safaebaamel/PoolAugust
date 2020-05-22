@@ -25,7 +25,7 @@ char	*ft_strstr(char *str, char *to_find)
 int	main(void)
 {
 	char str[] = "la ok is";
-	char to_find[] = "mm";
+	char to_find[] = "ok";
 	printf("%s", ft_strstr(str,to_find));
 	return 0;
 }

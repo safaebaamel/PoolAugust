@@ -17,14 +17,14 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		j++;
 	}
 	dest[i] = '\0';
-	return (i + size);
+	return (i + j);
 }	
 
 int	main(void)
 {
-	char str[] = "WHY";
-	char dest[] = "IS";
-	unsigned int size = 3;
+	char str[] = "a";
+	char dest[] = "*";
+	unsigned int size = 2;
 	printf("%d",ft_strlcat(dest,str,size));
 	return 0;
 }
